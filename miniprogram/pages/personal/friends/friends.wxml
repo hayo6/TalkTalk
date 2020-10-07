@@ -1,0 +1,28 @@
+<view class="container">
+
+  <view class="cu-list menu-avatar margin-top" style="width:100%">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{frinedsList}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" bindtap="openChatRoom" data-groupid="{{groupids[index]}}" data-nickname="{{item.nickName}}"
+      data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+      <view class="content">
+        <view class="text-grey">{{item.nickName}}</view>
+        <view class="text-gray text-sm">
+          <text></text>{{item.introduce || '该用户什么都没有留下！'}}</view>
+      </view>
+      <view class="move">
+        <view class="bg-grey">置顶</view>
+        <view class="bg-red" catchtap="Remove" data-objid="{{item._id}}" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+  <!-- <block wx:for="{{frinedsList}}">
+      <view class='chat-item' bindtap="openChatRoom" data-groupid="{{item.groupid}}" data-nickname="{{item.nickname}}">
+        <view class="item-left">
+          <image src="{{item.avatar}}"></image>
+        </view>
+        <view class="item-right">
+          <view class='item-name'>{{item.nickname}}</view>
+        </view>
+      </view>
+    </block> -->
+</view>

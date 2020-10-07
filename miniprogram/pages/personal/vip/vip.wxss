@@ -1,0 +1,54 @@
+
+.cardTitle{
+  color: #fff;
+  padding: 90rpx 60rpx;
+  font-size: 40rpx;
+  font-weight: 300;
+  transform: skew(-10deg, 0deg);
+  position: relative;
+  text-shadow: 0px 0px 6rpx rgba(0,0,0,0.3)
+}
+
+.cardTitle::before{
+  content: "";
+  position: absolute;
+  width: 60rpx;
+  height: 6rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  display: block;
+  top: 60rpx;
+  left: 50rpx;  
+  transform: skew(10deg, 0deg);
+}
+.cardTitle::after{
+  content: "";
+  position: absolute;
+  width: 140rpx;
+  border-radius: 6rpx;
+  height: 24rpx;
+  background-color: #fff;
+  display: block;
+  bottom: 76rpx;
+  left: 90rpx;  
+  transform: skew(10deg, 0deg);
+  opacity: 0.1;
+}
+
+.cb-position{
+  position: relative;
+  bottom: 4rpx;
+  transform: scale(0.6,0.6)
+}
+
+.text-line{
+  width: 76rpx;
+  border-top: solid #ACC0D8 1px;
+  position: relative;
+  left: 24rpx;
+  top: -18rpx;
+}
+
+.solid-green{
+  border: solid 1px green;
+}

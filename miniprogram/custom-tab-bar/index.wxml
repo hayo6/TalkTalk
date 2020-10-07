@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action {{tabCur== 'home'?'text-green':'text-gray'}}" data-tabname="home" bindtap="tabSelect">
+      <view class="{{tabCur== 'home'? 'cuIcon-homefill' : 'cuIcon-home'}}"></view> 首页
+    </view>
+    <view class="action {{tabCur== 'search'?'text-green':'text-gray'}}" data-tabname="search" bindtap="tabSelect">
+      <view class="cuIcon-search"></view> 搜索
+    </view>
+    <view class="action text-gray add-action bg-action">
+      <button class="cu-btn cuIcon-add bg-green shadow" data-tabname="post" bindtap="tabSelect"></button>
+      发布
+    </view>
+    <view class="action {{tabCur== 'message'?'text-green':'text-gray'}}" data-tabname="message" bindtap="tabSelect">
+      <view class="{{tabCur== 'message'? 'cuIcon-messagefill' : 'cuIcon-message'}}">
+        <!-- <view  class="cu-tag {{hasMessage ? 'badge' : ''}}"></view> -->
+      </view>
+      消息
+    </view>
+    <view class="action {{tabCur== 'my'?'text-green':'text-gray'}}" data-tabname="my" bindtap="tabSelect">
+      <view class="{{tabCur== 'my'? 'cuIcon-myfill' : 'cuIcon-my'}}"></view>
+      我的
+    </view>
+  </view>
+</view>

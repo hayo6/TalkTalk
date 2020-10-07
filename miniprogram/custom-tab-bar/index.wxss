@@ -1,0 +1,29 @@
+@import "/colorui.wxss";
+@import "/icon.wxss";
+@import "/iconfont.wxss";
+
+.container{
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+}
+
+.text-green{
+  color: #66cdaa;
+}
+
+.text-gray{
+	color: #aaaaaa;
+}
+
+.bg-green{
+  background-color: #39b54a;
+  color: #ffffff;
+}
+
+.bg-action{
+  background-color: #ffffff;
+}

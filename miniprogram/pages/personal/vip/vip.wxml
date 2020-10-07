@@ -1,0 +1,44 @@
+<scroll-view scroll-y class="scrollPage">
+	<view class="cu-card">
+		<view class="cu-item bg-img shadow-blur" style="background-image:url('https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg')" bindtap="toChild">
+			<view class="cardTitle">
+				会员中心
+        <view class="text-yellow text-df" wx:if="{{days}}">会员{{days}}天后过期</view>
+				<view class="text-green text-df" wx:if="{{!days}}">您还不是会员</view>
+			</view>
+		</view>
+	</view>
+	<view class="padding-left padding-right">
+		<view class="padding-xl radius shadow bg-white">
+			<text class="text-black text-bold">功能特权</text>
+			<view class="text-sm padding-top padding-left padding-right">
+				<text class="text-grey">1.精确用户搜索特权，可以通过性别、地区、身高、体重搜索用户</text>
+			</view>
+			<view class=" text-sm padding">
+				<text class="text-grey">2.可以分别按会员资料真实性、会员颜值、会员性格等打分评价。</text>
+			</view>
+		</view>
+	</view>
+	<view class="padding text-center">
+		<view class="radius shadow bg-white">
+			<view class="grid col-3 bg-white padding-sm">
+				<view class="padding-sm " wx:for="{{priceList}}" bindtap="onChoose" data-index="{{index}}">
+					<view class="bg-cyan padding radius text-center light {{item.isChoose ? 'solid-green' : ''}}">
+						<view class="text-df text-black text-bold">{{item.title}}</view>
+						<view class="margin-top-sm text-price text-xl">{{item.discount}}</view>
+            <view class="text-grey text-price">{{item.price}}</view>
+            <view class="text-line"></view>
+					</view>
+				</view>
+			</view>
+			<view class=" text-sm padding">
+      <checkbox class="cb-position" bindtap="checkboxChange"/>
+				<text class="text-grey">同意自动续费协议，到期自动续费</text>
+			</view>
+			<view class="padding flex flex-direction">
+				<button class="cu-btn bg-green lg" bindtap="onSubmit">确认支付</button>
+			</view>
+		</view>
+	</view>
+	<view class="cu-tabbar-height"></view>
+</scroll-view>

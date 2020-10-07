@@ -1,0 +1,17 @@
+<!-- 评论框 -->
+<view class="cu-modal {{modalName=='Modal'?'show':'show'}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">回复 <text style='color:#3c9be7;'>{{commentInfo.title}}</text></view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            <textarea  class='bg-red0 shadow-warp text-left padding-sm' bindinput='getCommentContent' placeholder='{{commentInfo.placeholder}}' value='{{content}}'></textarea>
+        </view>
+        <view class="cu-bar bg-gradual-green">
+            <view class="action margin-0 flex-sub  solid-left text-Abc" bindtap="postComment">{{commentInfo.btn}}</view>
+        </view>
+    </view>
+</view>

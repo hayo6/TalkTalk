@@ -1,0 +1,48 @@
+/* miniprogram/pages/personal/set/set.wxss */
+page{
+  background-color: #F5F5F5;
+}
+
+.container{
+  /* display: flex */
+  width: 100%
+}
+.from{
+  width: 100%;
+}
+.item{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  height: 90rpx;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  margin-bottom: 20rpx;
+}
+
+.item-title{
+  width: 100rpx;
+  padding-left: 10rpx;
+}
+.long{
+  width: 160rpx;
+}
+
+.item-input{
+  height: 90rpx;
+  flex-grow: 1
+}
+.item-picker{
+  height: 90rpx;
+  flex-grow: 1
+}
+
+.introduce{
+  width: 100%;
+  background-color: #ffffff;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  margin-bottom: 10rpx;
+}
+

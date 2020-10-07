@@ -1,0 +1,37 @@
+<view class="message-container">
+  <view style='background:#acb5bd;margin-top:10rpx;padding:10rpx;border-radius:10rpx;'>
+    共
+    <text style='color:#ff5e15'>{{message_number}}</text>条历史信息
+    <text style='color:#3c9be7' bindtap='clearnmassage' wx:if='{{message_number > 0}}'>点我清空消息</text>
+  </view>
+  <view class='message-content'>
+    <view class='message-item' wx:for="{{messageList}}" wx:key="{{messageList}}">
+      <view class='item'>
+        <view class='left'>
+          <view>
+            <image src='{{item.from_user.avatar}}'></image>
+          </view>
+        </view>
+        <view class='content'>
+          <view class='username'>
+            {{item.from_user.nickname}}
+          </view>
+          <view class="message">
+            <view>
+              <text style='color:#ff0080'>^ 好友请求 ^</text>{{item.content}}
+            </view>
+            <button class="agree-btn" type="primary" bindtap="agree" data-hisopenid="{{item._openid}}" data-avatar="{{item.from_user.avatar}}" data-nickname="{{item.from_user.nickname}}" wx:if="{{!item.isread && !isClick}}">同意</button>
+          </view>
+
+          <view class='created_at'>{{item.created_at}}</view>
+
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <get-more-loading wx:if="{{showGeMoreLoadin}}"></get-more-loading>
+  <not-more wx:if="{{notDataTips}}"></not-more>
+
+</view>

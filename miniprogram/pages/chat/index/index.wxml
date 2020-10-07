@@ -1,0 +1,49 @@
+<view>
+  <view class="cu-bar bg-white" bindtap='openMessage'>
+    <view class="action">
+      <text class="cuIcon-message"></text>
+      <text>消息</text>
+    </view>
+    <view class="cu-tag round bg-red sm" style="margin-right:36rpx" wx:if="{{messageUnreadNum}}">{{messageUnreadNum}}</view>
+  </view>
+   <view class="cu-bar bg-white" bindtap='openAddFriend'>
+    <view class="action">
+      <text class="cuIcon-add"></text>
+      <text>好友请求</text>
+    </view>
+    <view class="cu-tag round bg-red sm" style="margin-right:36rpx" wx:if="{{addfriendUnreadNum}}">{{addfriendUnreadNum}}</view>
+  </view>
+
+  <view class="cu-list menu-avatar margin-top">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{chattingList}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" bindtap="openChatRoom" data-groupid="{{item.groupid}}" data-nickname="{{item.nickname}}"
+      data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+      <view class="content">
+        <view class="text-grey">{{item.nickname}}</view>
+        <view class="text-gray text-sm">
+          <text></text>{{item.content}}</view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">{{item.sendTime}}</view>
+        <!-- <view class="cu-tag round bg-red sm">1</view> -->
+      </view>
+      <view class="move">
+        <view class="bg-grey">置顶</view>
+        <view class="bg-red" catchtap="Remove" data-objid="{{item._id}}" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="chat-container">
+    <block wx:for="{{chattingList}}">
+      <view class='chat-item' bindtap="openChatRoom" data-groupid="{{item.groupid}}" data-nickname="{{item.nickname}}">
+        <view class="item-left">
+          <image src="{{item.avatar}}"></image>
+        </view>
+        <view class="item-right">
+          <view class='item-name'>{{item.nickname}}</view>
+          <view class="item-message">{{item.content}}</view>
+        </view>
+      </view>
+    </block>
+  </view> -->
+</view>

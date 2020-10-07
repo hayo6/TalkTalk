@@ -1,0 +1,101 @@
+<scroll-view scroll-y class="scrollPage">
+	<view class="cuIcon-friendadd setting" catchtap="requestAddFriend"></view>
+	<view class="UCenter-bg">
+		<image src="{{userInfo.avatarUrl}}" class="png cu-avatar round" mode="widthFix">
+		</image>
+		<view class="cu-tag badge" style="top:150rpx;right:280rpx" wx:if="{{userInfo.online}}">在线</view>
+		<view class="text-xl">{{userInfo.nickName}}
+			<text class="text-df  badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}" style="border-radius: 200rpx"></text>
+		</view>
+		<view class="margin-top-sm">
+			<view class="cu-tag bg-purple light">{{userInfo.introduce || '该用户比较低调，什么也没有留下！'}}</view>
+		</view>
+	</view>
+	<view class="padding flex text-center text-grey bg-white shadow-warp">
+		<view class="flex flex-sub flex-direction solid-right" bindtap="opendPostList">
+			<view class="text-xxl text-orange">{{postNum}}</view>
+			<view class="margin-top-sm">动态</view>
+		</view>
+		<view class="flex flex-sub flex-direction solid-right" bindtap="openFriends">
+			<view class="text-xxl text-blue">{{friendsNum}}</view>
+			<view class="margin-top-sm">好友</view>
+		</view>
+		<view class="flex flex-sub flex-direction" bindtap="openShowYourselfList">
+			<view class="text-xxl text-green">{{showYourSelfNum}}</view>
+			<view class="margin-top-sm">魅力秀</view>
+		</view>
+	</view>
+
+	<!-- 个人资料 -->
+	<view class="cu-bar bg-white solid-bottom margin-top-sm">
+		<view class="action">
+			<text class="cuIcon-title text-blue"></text>个人资料
+		</view>
+	</view>
+	<view class="cu-bar bg-white">
+		<view class="cu-item my-detail">
+			<view class="d-left">
+				<view class="bv" bindtap="getBeautyValue" bindlongpress="getBeautyValue">
+					<view class="bv-title">颜值</view>
+					<view class="bv-value">{{userInfo.bv_value}}分</view>
+				</view>
+				<view class="bv-detail">是个没戴眼镜的小正太呢</view>
+			</view>
+			<view class="d-right">
+				<view class="d-item visit-num">人气值： {{userInfo.view_number}}</view>
+				<view class="d-item">年龄： {{userInfo.age || '未知'}}</view>
+				<view class="d-item">地区： {{userInfo.region[0]}}{{userInfo.region[1]}}{{userInfo.region[2] || '广东省肇庆市德庆县'}}
+
+				</view>
+				<view class="d-item">身高： {{userInfo.height || '未知'}}</view>
+				<view class="d-item">体重： {{userInfo.weight || '未知'}}</view>
+			</view>
+		</view>
+	</view>
+	<!-- 用户评价 -->
+	<view class="cu-bar bg-white solid-bottom margin-top-sm" wx:if="{{isvip}}">
+		<view class="action">
+			<text class="cuIcon-title text-blue"></text>用户评价
+		</view>
+		<view class="action">
+			<button class="cu-btn sm" wx:if="{{!isComment}}" bindtap="onSubmit">确定</button>
+		</view>
+	</view>
+	<view class="padding bg-white" wx:if="{{isvip}}">
+		<view class="flex justify-center flex-wrap">
+			<view class="cu-capsule padding-xs" wx:for="{{commentTag}}" catchtap="pickTag" data-index="{{index}}">
+				<view class="cu-tag bg-cyan {{userComment[index] ? 'light' : ''}}">
+					<text>{{item}}</text>
+				</view>
+				<view class="cu-tag line-cyan">
+					{{totalComment[index]}}
+				</view>
+			</view>
+		</view>
+		<view class="slider-container margin-top left">
+			<text>用户颜值：</text>
+			<view style="width:532rpx;margin-left:26rpx">
+				<slider bindchange="bSliderChange" show-value value="{{beautyScore}}" />
+			</view>
+		</view>
+		<view class="slider-container">
+			<text>资料真实性：</text>
+			<view style="width:530rpx">
+				<slider bindchange="dSliderChange" show-value value="{{dataScore}}" />
+			</view>
+		</view>
+	</view>
+	<!-- 相册 -->
+	<view class="cu-bar bg-white solid-bottom margin-top-sm">
+		<view class="action">
+			<text class="cuIcon-title text-blue"></text>相册
+		</view>
+	</view>
+	<view class="cu-form-group padding-top padding-bottom-sm">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+			</view>
+		</view>
+	</view>
+</scroll-view>
