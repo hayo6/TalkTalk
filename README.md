@@ -62,5 +62,5 @@ SECRET-------------------------小程序的appid
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
-### 毕设做的项目，因为之前的电脑文档没在手上，后面会尽快补充完整，如有疑问需交流微信：lhy18023606468
+毕设做的项目，因为之前的电脑文档没在手上，后面会尽快补充完整，如有疑问需交流微信：lhy18023606468
 
